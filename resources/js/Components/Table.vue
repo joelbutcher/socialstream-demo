@@ -1,7 +1,11 @@
 <script setup>
 // Core
 import {onMounted, ref} from 'vue';
-import {EyeIcon} from '@heroicons/vue/24/outline';
+import {
+  CheckCircleIcon,
+  EyeIcon,
+  XCircleIcon,
+} from '@heroicons/vue/24/outline';
 
 // Components
 import PaginationLinks from '@/Components/PaginationLinks.vue';
@@ -39,7 +43,8 @@ const fetchData = async (page = 1) => {
 <template>
   <template v-if="data.data.length > 0">
     <div class="hidden md:block">
-      <table class="min-w-full bg-white dark:bg-slate-800 overflow-hidden shadow sm:shadow-lg sm:rounded-lg table-fixed">
+      <table
+          class="min-w-full bg-white dark:bg-slate-800 overflow-hidden shadow sm:rounded-lg table-fixed">
         <thead class="bg-slate-700 dark:bg-slate-900">
         <tr>
           <th scope="col" class="p-4">
@@ -56,30 +61,47 @@ const fetchData = async (page = 1) => {
         </thead>
 
         <tbody class="divide-y divide-gray-200 dark:divide-slate-800 bg-white dark:bg-slate-700">
-          <template v-for="item in data.data">
-            <tr class="bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/70 transition duration-300">
-              <td class="p-4 w-4 dark:text-white">
-                {{ item[keyName] }}
-              </td>
-              <td v-for="key in Object.keys(headers)"
-                  class="py-4 px-6 text-sm font-medium text-slate-900 dark:text-slate-200 whitespace-nowrap">
+        <template v-for="item in data.data">
+          <tr class="bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-800/70 transition duration-300">
+            <td class="p-4 w-4 dark:text-white">
+              {{ item[keyName] }}
+            </td>
+            <td v-for="key in Object.keys(headers)"
+                class="py-4 px-6 text-sm font-medium text-slate-900 dark:text-slate-200 whitespace-nowrap">
+              <template v-if="typeof item[key] == 'boolean'">
+                <div class="ml-2">
+                  <template v-if="item[key]">
+                    <CheckCircleIcon class="w-6 h-6 text-green-600 stroke-2" />
+                  </template>
+                  <template v-else>
+                    <XCircleIcon class="w-6 h-6 text-red-600 stroke-2" />
+                  </template>
+                </div>
+              </template>
+              <template v-else>
                 {{ item[key] }}
-              </td>
-              <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
-                <ActionLink :href="route(viewRoute, item[viewRouteKeyName])">
-                  <span>View</span>
-                  <EyeIcon class="w-5 h-5 ml-2 text-slate-700 dark:text-white"/>
-                </ActionLink>
-              </td>
-            </tr>
-          </template>
+              </template>
+            </td>
+            <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
+              <ActionLink :href="route(viewRoute, item[viewRouteKeyName])">
+                <span>View</span>
+                <EyeIcon class="w-5 h-5 ml-2 text-slate-700 dark:text-white"/>
+              </ActionLink>
+            </td>
+          </tr>
+        </template>
         </tbody>
       </table>
+    </div>
+
+    <div class="md:hidden">
+      <slot :items="data.data" />
     </div>
   </template>
 
   <template v-else>
-    <div class="p-6 text-slate-500 dark:text-slate-400 text-center">
+    <div
+        class="flex items-center justify-center bg-white dark:bg-slate-800 shadow sm:rounded-lg text-slate-500 dark:text-slate-400 p-6">
       No data to show
     </div>
   </template>
