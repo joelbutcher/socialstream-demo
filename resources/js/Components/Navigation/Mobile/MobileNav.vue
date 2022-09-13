@@ -4,6 +4,8 @@ import { Link } from '@inertiajs/inertia-vue3';
 import { Inertia } from '@inertiajs/inertia';
 import {
   HomeIcon,
+  UserIcon,
+  UserGroupIcon,
   ChevronRightIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/vue/24/solid';
@@ -100,6 +102,23 @@ const logout = () => {
         <div class="px-4 py-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
           Account Management
         </div>
+
+        <MobileNavLink
+            :href="route('users.index')"
+            :active="route().current('users.index')"
+        >
+          <UserIcon class="w-4 h-4"/>
+          <span class="text-xs sm:text-sm">User Management</span>
+        </MobileNavLink>
+
+        <MobileNavLink
+            :href="route('teams.index')"
+            :active="route().current('teams.index')"
+            v-show="$page.props.jetstream.hasTeamFeatures"
+        >
+          <UserGroupIcon class="w-4 h-4"/>
+          <span class="text-xs sm:text-sm">My Teams</span>
+        </MobileNavLink>
       </div>
 
       <div class="border-t border-indigo-500 mb-2">

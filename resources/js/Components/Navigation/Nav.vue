@@ -106,6 +106,7 @@ const toggleMenu = () => {
         </NavLink>
 
         <NavLink
+            v-show="$page.props.jetstream.hasTeamFeatures"
             label="My Teams"
             :open="open"
             :href="route('teams.index', $page.props.user.current_team)"

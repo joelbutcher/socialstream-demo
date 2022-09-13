@@ -19,10 +19,9 @@ import ActionLink from '@/Components/ActionLink.vue';
           Users /
         </div>
 
-        <div class="flex items-center justify-between">
-
-          <h2 class="font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200 leading-tight mt-2">
-            User Management
+        <div class="flex items-center justify-between mt-2">
+          <h2 class="font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200 leading-tight">
+            Users
           </h2>
 
           <ActionLink :href="route('users.create')">
