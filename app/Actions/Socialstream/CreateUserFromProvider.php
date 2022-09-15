@@ -40,7 +40,7 @@ class CreateUserFromProvider implements CreatesUserFromProvider
     {
         return DB::transaction(function () use ($provider, $providerUser) {
             return tap(User::create([
-                'name' => $providerUser->getName() ?? $providerUser->getNickname(),
+                'name' => $providerUser->getName(),
                 'email' => $providerUser->getEmail(),
             ]), function (User $user) use ($provider, $providerUser) {
                 $user->markEmailAsVerified();

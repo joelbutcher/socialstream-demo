@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Foundation\Application;
@@ -30,10 +29,6 @@ Route::middleware([
         Route::post('/create', [UserController::class, 'store'])->name('store');
         Route::get('/{user:email}', [UserController::class, 'show'])->name('show');
         Route::delete('/{user:id}', [UserController::class, 'destroy'])->name('destroy');
-    });
-
-    Route::prefix('/teams')->name('teams.')->group(function () {
-        Route::get('/', [TeamController::class, 'index'])->name('index');
     });
 });
 

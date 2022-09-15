@@ -14,6 +14,9 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property  string  $first_name
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -32,7 +35,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -49,6 +52,8 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'created_at' => 'date:d/m/Y',
+        'updated_at' => 'date:d/m/Y',
         'email_verified_at' => 'datetime',
     ];
 
@@ -56,13 +61,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $appends = [
-        'name', 'profile_photo_url',
+        'profile_photo_url',
     ];
-
-    public function name(): Attribute
-    {
-        return Attribute::make(get: fn () => "{$this->first_name} $this->last_name");
-    }
 
     public function email(): string
     {
@@ -71,6 +71,11 @@ class User extends Authenticatable
         }
 
         return $this->getPhotoUrl();
+    }
+
+    public function firstName(): Attribute
+    {
+        return Attribute::make(get: fn () => explode(' ', $this->name)[0]);
     }
 
     /**

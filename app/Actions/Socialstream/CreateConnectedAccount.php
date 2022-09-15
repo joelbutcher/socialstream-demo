@@ -13,7 +13,7 @@ class CreateConnectedAccount implements CreatesConnectedAccounts
      *
      * @param  mixed  $user
      * @param  string  $provider
-     * @param  \Laravel\Socialite\Contracts\User  $providerUser
+     * @param  \Laravel\Socialite\One\User|\Laravel\Socialite\Two\User  $providerUser
      * @return \JoelButcher\Socialstream\ConnectedAccount
      */
     public function create($user, string $provider, ProviderUser $providerUser)

@@ -31,4 +31,22 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google' => [
+        'client_id' => 'foo',
+        'client_secret' => 'secret',
+        'redirect' => 'https://jetstream-template.test/oauth/google/callback',
+    ],
+
+    'facebook' => [
+        'client_id' => 'foo',
+        'client_secret' => 'secret',
+        'redirect' => 'https://jetstream-template.test/oauth/facebook/callback',
+    ],
+
+    'github' => [
+        'client_id' => 'foo',
+        'client_secret' => 'secret',
+        'redirect' => 'https://jetstream-template.test/oauth/github/callback',
+    ],
+
 ];

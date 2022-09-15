@@ -21,8 +21,7 @@ class CreateUser
      * @return void
      */
     public function __construct(
-        private readonly string $firstName,
-        private readonly string $lastName,
+        private readonly string $name,
         private readonly string $email,
         private readonly string $password,
     ) {
@@ -32,8 +31,7 @@ class CreateUser
     public static function fromRequest(CreateUserRequest $request): self
     {
         return new self(
-            $request->firstName(),
-            $request->lastName(),
+            $request->name(),
             $request->email(),
             $request->password(),
         );
@@ -42,8 +40,7 @@ class CreateUser
     public function handle(): void
     {
         tap(User::create([
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
+            'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),
         ]), function (User $user) {

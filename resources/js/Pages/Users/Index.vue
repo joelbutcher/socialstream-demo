@@ -33,7 +33,7 @@ import ActionLink from '@/Components/ActionLink.vue';
             apiResourceRoute="api.users.index"
             viewRoute="users.show"
             viewRouteKeyName="email"
-            :headers="{full_name: 'Name', email: 'Email', created_at: 'Created At'}"
+            :headers="{name: 'Name', email: 'Email', created_at: 'Created At'}"
         />
       </div>
     </div>

@@ -15,7 +15,7 @@ class UpdateConnectedAccount implements UpdatesConnectedAccounts
      * @param  mixed  $user
      * @param  \JoelButcher\Socialstream\ConnectedAccount  $connectedAccount
      * @param  string  $provider
-     * @param  \Laravel\Socialite\Contracts\User  $providerUser
+     * @param  \Laravel\Socialite\One\User|\Laravel\Socialite\Two\User  $providerUser
      * @return \JoelButcher\Socialstream\ConnectedAccount
      */
     public function update($user, ConnectedAccount $connectedAccount, string $provider, User $providerUser)

@@ -75,17 +75,6 @@ const logout = () => {
               Users
             </span>
           </MobileNavLink>
-
-          <MobileNavLink
-              :href="route('teams.index')"
-              :active="route().current('teams.index')"
-              v-show="$page.props.jetstream.hasTeamFeatures"
-          >
-            <UsersIcon class="w-4 h-4"/>
-            <span class="text-xs sm:text-sm">
-              Teams
-            </span>
-          </MobileNavLink>
         </ul>
       </div>
 

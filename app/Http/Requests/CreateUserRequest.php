@@ -14,21 +14,15 @@ class CreateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['required', 'string', 'max:255'],
         ];
     }
 
-    public function firstName(): string
+    public function name(): string
     {
-        return $this->get('first_name');
-    }
-
-    public function lastName(): string
-    {
-        return $this->get('last_name');
+        return $this->get('name');
     }
 
     public function email(): string

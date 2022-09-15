@@ -19,8 +19,7 @@ const props = defineProps({
 });
 
 const form = useForm({
-  first_name: '',
-  last_name: '',
+  name: '',
   email: '',
   password: props.password,
 });
@@ -56,27 +55,16 @@ const copyPassword = () => {
     </template>
 
     <template #form>
-      <div class="col-span-6 sm:col-span-2">
-        <InputLabel for="first_name" value="First Name" />
+      <div class="col-span-6 sm:col-span-4">
+        <InputLabel for="name" value="Name" />
         <TextInput
-            id="first_name"
-            v-model="form.first_name"
+            id="name"
+            v-model="form.name"
             type="text"
             class="block w-full mt-1"
             autofocus
         />
-        <InputError :message="form.errors.first_name" class="mt-2" />
-      </div>
-
-      <div class="col-span-6 sm:col-span-2">
-        <InputLabel for="last_name" value="Last Name" />
-        <TextInput
-            id="last_name"
-            v-model="form.last_name"
-            type="text"
-            class="block w-full mt-1"
-        />
-        <InputError :message="form.errors.last_name" class="mt-2" />
+        <InputError :message="form.errors.name" class="mt-2" />
       </div>
 
       <div class="col-span-6 sm:col-span-4">

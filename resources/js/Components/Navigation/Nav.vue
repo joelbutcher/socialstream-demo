@@ -102,18 +102,6 @@ const toggleMenu = () => {
             <UsersIcon class="w-5 h-5"/>
           </template>
         </NavLink>
-
-        <NavLink
-            v-show="$page.props.jetstream.hasTeamFeatures"
-            label="Teams"
-            :open="open"
-            :href="route('teams.index', $page.props.user.current_team)"
-            :active="route().current('teams.index')"
-        >
-          <template #icon>
-            <UserGroupIcon class="w-5 h-5"/>
-          </template>
-        </NavLink>
       </ul>
 
       <div class="py-2">

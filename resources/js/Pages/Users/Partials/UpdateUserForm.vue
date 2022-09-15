@@ -19,8 +19,7 @@ const props = defineProps({
 
 const form = useForm({
   _method: 'PUT',
-  first_name: props.user.first_name,
-  last_name: props.user.last_name,
+  name: props.user.name,
   email: props.user.email,
   photo: null,
 });
@@ -46,7 +45,7 @@ const selectNewPhoto = () => {
 const updatePhotoPreview = () => {
   const photo = photoInput.value.files[0];
 
-  if (! photo) return;
+  if (!photo) return;
 
   const reader = new FileReader();
 
@@ -110,7 +109,7 @@ const clearPhotoFileInput = () => {
                     />
         </div>
 
-        <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
+        <SecondaryButton class="mt-4 mr-2" type="button" @click.prevent="selectNewPhoto">
           Select A New Photo
         </SecondaryButton>
 
@@ -127,30 +126,16 @@ const clearPhotoFileInput = () => {
       </div>
 
       <!-- Name -->
-      <div class="grid grid-cols-2 col-span-6 sm:col-span-4 gap-4">
-        <div class="col-span-2 sm:col-span-1">
-          <InputLabel for="first_name" value="First Name"/>
-          <TextInput
-              id="first_name"
-              v-model="form.first_name"
-              type="text"
-              class="mt-1 block w-full"
-              autocomplete="first_name"
-          />
-          <InputError :message="form.errors.first_name" class="mt-2"/>
-        </div>
-
-        <div class="col-span-2 sm:col-span-1">
-          <InputLabel for="last_name" value="Last name"/>
-          <TextInput
-              id="last_name"
-              v-model="form.last_name"
-              type="text"
-              class="mt-1 block w-full"
-              autocomplete="last_name"
-          />
-          <InputError :message="form.errors.last_name" class="mt-2"/>
-        </div>
+      <div class="col-span-6 sm:col-span-4">
+        <InputLabel for="name" value="Name"/>
+        <TextInput
+            id="name"
+            v-model="form.name"
+            type="text"
+            class="mt-1 block w-full"
+            autocomplete="name"
+        />
+        <InputError :message="form.errors.name" class="mt-2"/>
       </div>
 
       <!-- Email -->

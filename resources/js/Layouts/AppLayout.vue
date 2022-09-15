@@ -58,7 +58,7 @@ const logout = () => {
                 <!-- Greeting -->
                 <div class="flex flex-col items-start">
                   <p class="font-semibold text-slate-900 dark:text-slate-100">
-                    {{ greeting($page.props.user.first_name) }}
+                    {{ greeting($page.props.user.name) }}
                   </p>
 
                   <p class="text-xs text-slate-500 dark:text-slate-400">

@@ -17,17 +17,11 @@ defineProps({
 </script>
 
 <template>
-  <AppLayout :title="`${data.full_name} – Users`">
+  <AppLayout :title="`${data.name} – Users`">
     <template #header>
       <div class="max-w-7xl mx-auto pt-10 px-4 lg:px-8">
-        <div class="mt-2 text-xs text-blue-600 dark:text-blue-400">
-          <Link :href="route('users.index')" class="hover:underline">Users</Link>
-          <span class="text-slate-500 dark:text-slate-300">
-          / {{ data.full_name }}</span>
-        </div>
-
-        <h2 class="font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200 leading-tight mt-2">
-          Users
+        <h2 class="font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200 leading-tight">
+          {{ data.name }}
         </h2>
       </div>
     </template>
