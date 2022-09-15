@@ -73,7 +73,7 @@ const removeConnectedAccount = (id) => {
         immediately and change your password.
       </div>
 
-      <div class="mt-5 divide-y divide-gray-200">
+      <div class="mt-5 divide-y divide-slate-200 dark:divide-slate-600">
         <div v-for="(provider) in $page.props.socialstream.providers" :key="provider">
           <ConnectedAccount
               :provider="provider"
