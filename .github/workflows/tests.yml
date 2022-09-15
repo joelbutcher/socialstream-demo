@@ -35,6 +35,6 @@ jobs:
       - name: Static Analysis
         run: ./vendor/bin/phpstan analyse
 
-#      - name: Deploy
-#        if: github.ref_name == 'main'
-#        run: curl ${{ secrets.DEPLOY_HOOK }}?sha=${{ github.sha }}
+     - name: Deploy
+       if: github.ref_name == 'main'
+       run: curl ${{ secrets.DEPLOY_HOOK }}?sha=${{ github.sha }}
