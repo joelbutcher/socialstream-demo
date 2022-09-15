@@ -1,8 +1,8 @@
 {
-    "name": "joelbutcher/jetstream-template",
+    "name": "joelbutcher/socialstream-demo",
     "type": "project",
-    "description": "A Laravel Jetstream application template.",
-    "keywords": ["framework", "laravel", "jetstream", "auth", "boilerplate", "template"],
+    "description": "A demo application, or template, for Socialstream.",
+    "keywords": ["framework", "laravel", "jetstream", "socialstream", "auth", "boilerplate", "template"],
     "license": "MIT",
     "require": {
         "php": "^8.1.9",
