@@ -2,7 +2,7 @@
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 import {ref} from 'vue';
 import JetActionSection from '@/Components/ActionSection.vue';
-import JetButton from '@/Components/Button.vue';
+import JetButton from '@/Components/PrimaryButton.vue';
 import JetDialogModal from '@/Components/DialogModal.vue';
 import JetSecondaryButton from '@/Components/SecondaryButton.vue';
 import ConnectedAccount from '@/Components/ConnectedAccount.vue';
@@ -59,15 +59,15 @@ const removeConnectedAccount = (id) => {
     </template>
 
     <template #content>
-      <h3 class="text-lg font-medium text-slate-900"
+      <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100"
           v-if="$page.props.socialstream.connectedAccounts.length === 0">
         You have no connected accounts.
       </h3>
-      <h3 class="text-lg font-medium text-slate-900" v-else>
+      <h3 class="text-lg font-medium text-slate-900 dark:text-slate-100" v-else>
         Your connected accounts.
       </h3>
 
-      <div class="mt-3 ax-w-xl text-sm text-slate-600">
+      <div class="max-w-xl text-sm text-slate-600 dark:text-slate-400">
         You are free to connect any social accounts to your profile and may remove any connected accounts at any
         time. If you feel any of your connected accounts have been compromised, you should disconnect them
         immediately and change your password.

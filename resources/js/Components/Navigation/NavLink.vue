@@ -35,7 +35,7 @@ const props = defineProps({
       </i>
       <span
           :class="clsx(
-              'text-base ml-4 transition duration-400 opacity-0 pointer-events-none whitespace-nowrap',
+              'text-sm ml-4 transition duration-400 opacity-0 pointer-events-none whitespace-nowrap',
               open && 'block opacity-100',
           )"
       >
@@ -48,11 +48,12 @@ const props = defineProps({
           'absolute left-full top-0 bottom-0',
           'pointer-events-none group-hover:opacity-100',
           'transition-opacity duration-200 ease-in',
-          'bg-white text-sm',
+          'bg-white dark:bg-slate-900 text-sm',
           'whitespace-nowrap',
           'rounded-xl shadow-lg',
           'py-3 px-4 ml-2',
           'opacity-0',
+          'text-sm',
         )">
       {{ label }}
     </span>

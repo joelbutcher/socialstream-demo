@@ -5,7 +5,7 @@ import {ref} from 'vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {
   HomeIcon,
-  UserIcon,
+  UsersIcon,
   UserGroupIcon,
   ChevronRightIcon,
 } from '@heroicons/vue/24/solid';
@@ -91,23 +91,21 @@ const toggleMenu = () => {
             <HomeIcon class="w-5 h-5"/>
           </template>
         </NavLink>
-      </ul>
 
-      <div class="py-2" v-show="$page.props.user.role === 1">
         <NavLink
-            label="User Management"
+            label="Users"
             :open="open"
             :href="route('users.index')"
             :active="route().current('users.index')"
         >
           <template #icon>
-            <UserIcon class="w-5 h-5"/>
+            <UsersIcon class="w-5 h-5"/>
           </template>
         </NavLink>
 
         <NavLink
             v-show="$page.props.jetstream.hasTeamFeatures"
-            label="My Teams"
+            label="Teams"
             :open="open"
             :href="route('teams.index', $page.props.user.current_team)"
             :active="route().current('teams.index')"
@@ -116,7 +114,7 @@ const toggleMenu = () => {
             <UserGroupIcon class="w-5 h-5"/>
           </template>
         </NavLink>
-      </div>
+      </ul>
 
       <div class="py-2">
         <LogoutButton :open="open" />

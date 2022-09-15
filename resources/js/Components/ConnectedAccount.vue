@@ -4,11 +4,17 @@ import {computed, ref} from 'vue';
 import {useForm, usePage} from '@inertiajs/inertia-vue3';
 
 // Components
+import DangerButton from '@/Components/DangerButton.vue';
+import SecondaryButton from '@/Components/SecondaryButton.vue';
+
+// Icons
 import FacebookIcon from '@/Components/SocialstreamIcons/FacebookIcon.vue';
 import GoogleIcon from '@/Components/SocialstreamIcons/GoogleIcon.vue';
-import MicrosoftIcon from '@/Components/SocialstreamIcons/MicrosoftIcon.vue';
-import JetDangerButton from '@/Components/DangerButton.vue';
-import JetSecondaryButton from '@/Components/SecondaryButton.vue';
+import TwitterIcon from '@/Components/SocialstreamIcons/TwitterIcon.vue';
+import LinkedInIcon from '@/Components/SocialstreamIcons/LinkedInIcon.vue';
+import GithubIcon from '@/Components/SocialstreamIcons/GithubIcon.vue';
+import GitLabIcon from '@/Components/SocialstreamIcons/GitLabIcon.vue';
+import BitbucketIcon from '@/Components/SocialstreamIcons/BitbucketIcon.vue';
 
 defineEmits(['confirmRemoveConnectedAccount']);
 
@@ -49,19 +55,24 @@ const createdAt = computed(() => hasAccountForProvider(props.provider) ? getAcco
         <div class="sm:mr-2">
           <FacebookIcon class="h-6 w-6" v-if="provider === 'facebook'"/>
           <GoogleIcon class="h-6 w-6" v-if="provider === 'google'"/>
-          <MicrosoftIcon class="h-6 w-6" v-if="provider === 'microsoft'"/>
+          <TwitterIcon class="h-6 w-6" v-if="provider === 'twitter'"/>
+          <TwitterIcon class="h-6 w-6" v-if="provider === 'twitter-oauth-2'"/>
+          <LinkedInIcon class="h-6 w-6" v-if="provider === 'linkedin'"/>
+          <GithubIcon class="h-6 w-6 dark:text-white" v-if="provider === 'github'"/>
+          <GitLabIcon class="h-6 w-6" v-if="provider === 'gitlab'"/>
+          <BitbucketIcon class="h-6 w-6" v-if="provider === 'bitbucket'"/>
         </div>
 
         <div class="text-center sm:text-left mt-3 sm:mt-0">
-          <div class="text-sm font-semibold text-slate-600">
+          <div class="text-sm font-semibold text-slate-900 dark:text-white">
             {{ provider === 'twitter-oauth-2' ? 'Twitter' : provider.charAt(0).toUpperCase() + provider.slice(1) }}
           </div>
 
-          <div v-if="createdAt !== null" class="text-xs text-slate-500">
+          <div v-if="createdAt !== null" class="text-xs text-slate-600 dark:text-slate-400">
             Connected {{ createdAt }}
           </div>
 
-          <div v-else class="text-xs text-slate-500">
+          <div v-else class="text-xs text-slate-500 dark:text-slate-400">
             Not connected.
           </div>
         </div>
@@ -77,32 +88,32 @@ const createdAt = computed(() => hasAccountForProvider(props.provider) ? getAcco
             Set Profile Photo
           </button>
 
-          <JetDangerButton
+          <DangerButton
               @click="$emit('confirmRemoveConnectedAccount')"
               v-if="hasAccountForProvider(provider) && $page.props.socialstream.hasPassword"
               class="text-xs text-slate-500"
           >
             Remove
-          </JetDangerButton>
+          </DangerButton>
         </template>
 
         <template v-else>
-          <JetSecondaryButton @click="push(route('oauth.redirect', { provider }))">
+          <SecondaryButton @click="push(route('oauth.redirect', { provider }))">
             Connect
-          </JetSecondaryButton>
+          </SecondaryButton>
         </template>
       </div>
     </div>
 
     <div class="sm:hidden flex flex-col">
       <template v-if="hasAccountForProvider(provider)">
-        <JetSecondaryButton
+        <SecondaryButton
             v-if="$page.props.jetstream.managesProfilePhotos && hasAccountForProvider(provider) && getAccountForProvider(provider).avatar_path"
             @click="setProfilePhoto(getAccountForProvider(provider).id)"
             class="mt-2"
         >
           Set Profile Photo
-        </JetSecondaryButton>
+        </SecondaryButton>
 
         <button
             @click="$emit('confirmRemoveConnectedAccount')"
@@ -114,9 +125,9 @@ const createdAt = computed(() => hasAccountForProvider(props.provider) ? getAcco
       </template>
 
       <template v-else>
-        <JetSecondaryButton @click="push(route('oauth.redirect', { provider }))" class="mt-2">
+        <SecondaryButton @click="push(route('oauth.redirect', { provider }))" class="mt-2">
           Connect
-        </JetSecondaryButton>
+        </SecondaryButton>
       </template>
     </div>
   </div>

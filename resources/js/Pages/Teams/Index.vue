@@ -16,27 +16,20 @@ import MobileTeamListItem from '@/Pages/Teams/Partials/MobileTeamListItem.vue';
   <AppLayout title="My Teams">
     <template #header>
       <div class="max-w-7xl mx-auto pt-10 px-4 lg:px-8">
-        <div class="text-xs">
-          Teams /
-        </div>
-
-        <div class="flex items-center justify-between mt-2">
+        <div class="flex items-center justify-between">
           <h2 class="font-bold text-xl md:text-2xl text-slate-800 dark:text-slate-200 leading-tight">
             My Teams
           </h2>
 
-          <ActionLink :href="route('teams.create')">
-            <PlusCircleIcon class="w-6 h-6 mr-2"/>
-            <span class="text-xs">
-              Create Team
-            </span>
+          <ActionLink :href="route('users.create')" class="py-1.5 px-2.5">
+            <PlusCircleIcon class="w-6 h-6"/>
           </ActionLink>
         </div>
       </div>
     </template>
 
     <div class="max-w-7xl mx-auto md:px-3 lg:px-8">
-      <div class="py-10">
+      <div class="py-6">
         <Table
             v-slot="slotProps"
             apiResourceRoute="api.teams.index"

@@ -4,8 +4,8 @@
       <slot name="logo"/>
     </div>
 
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-slate-800 shadow-md overflow-hidden sm:rounded-lg">
-      <h2 class="font-bold text-xl lg:text-2xl text-slate-700 dark:text-slate-300 leading-tight mt-4 ml-2">
+    <div class="w-full sm:max-w-md mt-6 px-6 bg-white dark:bg-slate-800 shadow-md overflow-hidden sm:rounded-lg py-6">
+      <h2 class="font-bold text-xl lg:text-2xl text-slate-700 dark:text-slate-300 leading-tight">
         <slot name="header" />
       </h2>
 

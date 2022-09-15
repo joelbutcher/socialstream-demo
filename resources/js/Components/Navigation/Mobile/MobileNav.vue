@@ -1,12 +1,13 @@
 <script setup>
 // Core
-import { Link } from '@inertiajs/inertia-vue3';
-import { Inertia } from '@inertiajs/inertia';
+import {Link} from '@inertiajs/inertia-vue3';
+import {Inertia} from '@inertiajs/inertia';
 import {
   HomeIcon,
   UserIcon,
+  UsersIcon,
   UserGroupIcon,
-  ChevronRightIcon,
+  CodeBracketIcon,
   ArrowLeftOnRectangleIcon,
 } from '@heroicons/vue/24/solid';
 
@@ -49,52 +50,43 @@ const logout = () => {
         </button>
       </div>
 
-      <!-- Profile -->
-      <Link
-          :href="route('profile.show')"
-          class="my-3 py-3"
-      >
-        <div
-             class="flex items-center justify-between text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 pl-4 pr-6 sm:px-6"
-        >
-          <div class="flex items-center space-x-4">
-            <img
-                class="h-8 w-8 rounded-full object-cover"
-                :src="$page.props.user.profile_photo_url"
-                :alt="$page.props.user.full_name"
-            >
-
-            <div class="flex flex-col items-start">
-              <div class="text-sm sm:text-base font-bold tracking-wider">
-                {{ $page.props.user.full_name }}
-              </div>
-
-              <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-300 font-semibold tracking-wider">
-                {{ $page.props.user.email }}
-              </div>
-            </div>
-          </div>
-
-          <ChevronRightIcon
-              class="w-5 h-5"
-              v-if="! route().current('profile.show')"
-          />
-        </div>
-      </Link>
-
       <!-- Main Menu -->
       <div class="flex flex-col grow py-2 border-t border-indigo-500 overflow-scroll shadow-inner">
         <div class="px-4 py-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
           Main Menu
         </div>
 
-        <MobileNavLink
-            :href="route('dashboard')"
-            :active="route().current('dashboard')"
-        >
-          <HomeIcon class="w-4 h-4"/>
-          <span class="text-xs sm:text-sm">Home</span>
-        </MobileNavLink>
+        <ul>
+
+          <MobileNavLink
+              :href="route('dashboard')"
+              :active="route().current('dashboard')"
+          >
+            <HomeIcon class="w-4 h-4"/>
+            <span class="text-xs sm:text-sm">Home</span>
+          </MobileNavLink>
+
+          <MobileNavLink
+              :href="route('users.index')"
+              :active="route().current('users.index')"
+          >
+            <UserGroupIcon class="w-4 h-4"/>
+            <span class="text-xs sm:text-sm">
+              Users
+            </span>
+          </MobileNavLink>
+
+          <MobileNavLink
+              :href="route('teams.index')"
+              :active="route().current('teams.index')"
+              v-show="$page.props.jetstream.hasTeamFeatures"
+          >
+            <UsersIcon class="w-4 h-4"/>
+            <span class="text-xs sm:text-sm">
+              Teams
+            </span>
+          </MobileNavLink>
+        </ul>
       </div>
 
       <!-- Account Management -->
@@ -104,20 +96,24 @@ const logout = () => {
         </div>
 
         <MobileNavLink
-            :href="route('users.index')"
-            :active="route().current('users.index')"
+            :href="route('profile.show')"
+            :active="route().current('profile.show')"
         >
           <UserIcon class="w-4 h-4"/>
-          <span class="text-xs sm:text-sm">User Management</span>
+          <span class="text-xs sm:text-sm">
+            Profile
+          </span>
         </MobileNavLink>
 
         <MobileNavLink
-            :href="route('teams.index')"
-            :active="route().current('teams.index')"
-            v-show="$page.props.jetstream.hasTeamFeatures"
+            :href="route('api-tokens.index')"
+            :active="route().current('api-tokens.index')"
+            v-show="$page.props.jetstream.hasApiFeatures"
         >
-          <UserGroupIcon class="w-4 h-4"/>
-          <span class="text-xs sm:text-sm">My Teams</span>
+          <CodeBracketIcon class="w-4 h-4"/>
+          <span class="text-xs sm:text-sm">
+            API Tokens
+          </span>
         </MobileNavLink>
       </div>
 

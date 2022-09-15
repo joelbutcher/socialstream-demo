@@ -11,16 +11,17 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        User::factory()
-            ->has(Team::factory(1, [
+        tap(User::factory()->create([
+            'first_name' => 'Test',
+            'last_name' => 'User',
+            'email' => 'test@example.com',
+            'role' => UserRoleEnum::Admin,
+        ]), function (User $user) {
+            $user->ownedTeams()->create([
                 'user_id' => 1,
                 'name' => "Test's Team",
                 'personal_team' => true,
-            ]))->create([
-                'first_name' => 'Test',
-                'last_name' => 'User',
-                'email' => 'test@example.com',
-                'role' => UserRoleEnum::Admin,
             ]);
+        });
     }
 }

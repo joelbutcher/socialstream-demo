@@ -2,10 +2,10 @@
 import { Head, useForm } from '@inertiajs/inertia-vue3';
 import AuthCard from '@/Components/Auth/Card.vue';
 import AuthCardLogo from '@/Components/Auth/CardLogo.vue';
-import JetButton from '@/Components/Button.vue';
-import JetInput from '@/Components/Input.vue';
-import JetInputError from '@/Components/InputError.vue';
-import JetLabel from '@/Components/Label.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 
 defineProps({
   status: String,
@@ -43,8 +43,8 @@ const submit = () => {
 
     <form @submit.prevent="submit">
       <div>
-        <JetLabel for="email" value="Email"/>
-        <JetInput
+        <InputLabel for="email" value="Email"/>
+        <TextInput
             id="email"
             v-model="form.email"
             type="email"
@@ -52,13 +52,13 @@ const submit = () => {
             required
             autofocus
         />
-        <JetInputError class="mt-2" :message="form.errors.email"/>
+        <InputError class="mt-2" :message="form.errors.email"/>
       </div>
 
       <div class="flex items-center justify-end mt-4">
-        <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Email Password Reset Link
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
   </AuthCard>

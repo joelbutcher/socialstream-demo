@@ -2,10 +2,10 @@
 import {Head, useForm} from '@inertiajs/inertia-vue3';
 import AuthCard from '@/Components/Auth/Card.vue';
 import AuthCardLogo from '@/Components/Auth/CardLogo.vue';
-import JetButton from '@/Components/Button.vue';
-import JetInput from '@/Components/Input.vue';
-import JetInputError from '@/Components/InputError.vue';
-import JetLabel from '@/Components/Label.vue';
+import PrimaryButton from '@/Components/PrimaryButton.vue';
+import TextInput from '@/Components/TextInput.vue';
+import InputError from '@/Components/InputError.vue';
+import InputLabel from '@/Components/InputLabel.vue';
 
 const props = defineProps({
   email: String,
@@ -40,8 +40,8 @@ const submit = () => {
 
     <form @submit.prevent="submit">
       <div>
-        <JetLabel for="email" value="Email"/>
-        <JetInput
+        <InputLabel for="email" value="Email"/>
+        <TextInput
             id="email"
             v-model="form.email"
             type="email"
@@ -49,12 +49,12 @@ const submit = () => {
             required
             autofocus
         />
-        <JetInputError class="mt-2" :message="form.errors.email"/>
+        <InputError class="mt-2" :message="form.errors.email"/>
       </div>
 
       <div class="mt-4">
-        <JetLabel for="password" value="Password"/>
-        <JetInput
+        <InputLabel for="password" value="Password"/>
+        <TextInput
             id="password"
             v-model="form.password"
             type="password"
@@ -62,12 +62,12 @@ const submit = () => {
             required
             autocomplete="new-password"
         />
-        <JetInputError class="mt-2" :message="form.errors.password"/>
+        <InputError class="mt-2" :message="form.errors.password"/>
       </div>
 
       <div class="mt-4">
-        <JetLabel for="password_confirmation" value="Confirm Password"/>
-        <JetInput
+        <InputLabel for="password_confirmation" value="Confirm Password"/>
+        <TextInput
             id="password_confirmation"
             v-model="form.password_confirmation"
             type="password"
@@ -75,13 +75,13 @@ const submit = () => {
             required
             autocomplete="new-password"
         />
-        <JetInputError class="mt-2" :message="form.errors.password_confirmation"/>
+        <InputError class="mt-2" :message="form.errors.password_confirmation"/>
       </div>
 
       <div class="flex items-center justify-end mt-4">
-        <JetButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+        <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
           Reset Password
-        </JetButton>
+        </PrimaryButton>
       </div>
     </form>
   </AuthCard>

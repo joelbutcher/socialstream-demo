@@ -1,7 +1,7 @@
 <script setup>
 import {Inertia} from '@inertiajs/inertia';
-import JetDropdown from '@/Components/Dropdown.vue';
-import JetDropdownLink from '@/Components/DropdownLink.vue';
+import Dropdown from '@/Components/Dropdown.vue';
+import DropdownLink from '@/Components/DropdownLink.vue';
 
 const switchToTeam = (team) => {
   Inertia.put(route('current-team.update'), {
@@ -15,7 +15,7 @@ const switchToTeam = (team) => {
 <template>
   <div class="hidden sm:flex sm:items-center ml-3 relative">
     <!-- Teams Dropdown -->
-    <JetDropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
+    <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
       <template #trigger>
         <span class="inline-flex rounded-md">
           <button type="button"
@@ -47,7 +47,7 @@ const switchToTeam = (team) => {
 
             <template v-for="team in $page.props.user.all_teams" :key="team.id">
               <form @submit.prevent="switchToTeam(team)">
-                <JetDropdownLink as="button">
+                <DropdownLink as="button">
                   <div class="flex items-center">
                     <svg
                         v-if="team.id == $page.props.user.current_team_id"
@@ -63,12 +63,12 @@ const switchToTeam = (team) => {
                     </svg>
                     <div>{{ team.name }}</div>
                   </div>
-                </JetDropdownLink>
+                </DropdownLink>
               </form>
             </template>
           </template>
         </div>
       </template>
-    </JetDropdown>
+    </Dropdown>
   </div>
 </template>
