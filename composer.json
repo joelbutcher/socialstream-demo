@@ -55,7 +55,6 @@
         "post-create-project-cmd": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
             "@php artisan key:generate --ansi",
-            "composer install --prefer-dist",
             "npm install && npm run build"
         ]
     },
