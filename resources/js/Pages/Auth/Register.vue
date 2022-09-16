@@ -120,7 +120,14 @@ const submit = () => {
       </div>
     </form>
 
-    <Socialstream v-if="$page.props.socialstream.show" />
+    <div class="flex flex-row items-center justify-between py-4 text-slate-500 dark:text-slate-400">
+      <hr class="w-full mr-2">
+      <span class="text-slate-700 dark:text-slate-100">
+          Or
+        </span>
+      <hr class="w-full ml-2">
+    </div>
 
+    <Socialstream v-if="$page.props.socialstream.show" />
   </AuthCard>
 </template>
