@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder
         tap(User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'role' => UserRoleEnum::Admin,
         ]), function (User $user) {
             $user->ownedTeams()->create([
                 'user_id' => 1,

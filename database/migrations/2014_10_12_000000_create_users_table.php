@@ -14,7 +14,6 @@ return new class () extends Migration {
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->tinyInteger('role')->default(UserRoleEnum::Standard->value);
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->foreignId('current_connected_account_id')->nullable();
