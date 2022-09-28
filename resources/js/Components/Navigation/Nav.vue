@@ -5,8 +5,6 @@ import {ref} from 'vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {
   HomeIcon,
-  UsersIcon,
-  UserGroupIcon,
   ChevronRightIcon,
 } from '@heroicons/vue/24/solid';
 
@@ -89,17 +87,6 @@ const toggleMenu = () => {
         >
           <template #icon>
             <HomeIcon class="w-5 h-5"/>
-          </template>
-        </NavLink>
-
-        <NavLink
-            label="Users"
-            :open="open"
-            :href="route('users.index')"
-            :active="route().current('users.index')"
-        >
-          <template #icon>
-            <UsersIcon class="w-5 h-5"/>
           </template>
         </NavLink>
       </ul>
