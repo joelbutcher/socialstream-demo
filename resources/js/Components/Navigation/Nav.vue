@@ -78,7 +78,7 @@ const toggleMenu = () => {
 
       <!-- Main Menu -->
       <ul class="grow mt-6 py-2">
-        <!-- Home -->
+        <!-- Dashboard -->
         <NavLink
             label="Dashboard"
             :open="open"
