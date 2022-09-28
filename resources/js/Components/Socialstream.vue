@@ -13,6 +13,10 @@ import GitLabIcon from '@/Components/SocialstreamIcons/GitLabIcon.vue';
 import BitbucketIcon from '@/Components/SocialstreamIcons/BitbucketIcon.vue';
 
 const error = computed(() => usePage().props.value.errors.socialstream);
+
+const verb = computed(() => {
+  return route().current('login') ? 'Sign In' : 'Register'
+});
 </script>
 
 <template>
@@ -24,7 +28,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <FacebookIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with Facebook
+          {{ verb }} with Facebook
         </span>
     </a>
 
@@ -35,7 +39,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <GoogleIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with Google
+          {{ verb }} with Google
         </span>
     </a>
 
@@ -46,7 +50,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <TwitterIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with Twitter
+          {{ verb }} with Twitter
         </span>
     </a>
 
@@ -57,7 +61,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <TwitterIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with Twitter
+          {{ verb }} with Twitter
         </span>
     </a>
 
@@ -68,18 +72,18 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <LinkedInIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with LinkedIn
+          {{ verb }} with LinkedIn
         </span>
     </a>
 
     <a
         v-if="$page.props.socialstream.providers.includes('github')"
         :href="route('oauth.redirect', 'github')"
-        class="w-full flex items-center justify-center rounded-full text-slate-700 dark:text-slate-200 border-2 border-zinc-300 hover:border-indigo-500 py-3 transition duration-200"
+        class="w-full flex items-center justify-center rounded-full bg-black dark:bg-white text-white dark:text-black py-3 transition duration-200"
     >
-      <GithubIcon class="h-6 w-6 mx-2"/>
+      <GithubIcon class="h-6 w-6 mx-2 text-white dark:text-black"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with GitHub
+          {{ verb }} with GitHub
         </span>
     </a>
 
@@ -90,7 +94,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <GitLabIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with GitLab
+          {{ verb }} with GitLab
         </span>
     </a>
 
@@ -101,7 +105,7 @@ const error = computed(() => usePage().props.value.errors.socialstream);
     >
       <BitbucketIcon class="h-6 w-6 mx-2"/>
       <span class="sr:hidden text-sm font-semibold">
-          Login with BitBucket
+          {{ verb }} with BitBucket
         </span>
     </a>
   </div>
