@@ -13,7 +13,7 @@ const switchToTeam = (team) => {
 </script>
 
 <template>
-  <div class="hidden sm:flex sm:items-center ml-3 relative">
+  <div class="hidden md:flex sm:items-center ml-3 relative">
     <!-- Teams Dropdown -->
     <Dropdown v-if="$page.props.jetstream.hasTeamFeatures" align="right" width="60">
       <template #trigger>
