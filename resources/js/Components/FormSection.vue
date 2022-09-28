@@ -8,7 +8,7 @@ const hasActions = computed(() => !! useSlots().actions);
 </script>
 
 <template>
-    <div class="xl:grid xl:grid-cols-3 xl:gap-4">
+    <div class="lg:grid lg:grid-cols-3 lg:gap-4">
         <SectionTitle>
             <template #title>
                 <slot name="title"/>
@@ -18,7 +18,7 @@ const hasActions = computed(() => !! useSlots().actions);
             </template>
         </SectionTitle>
 
-        <div class="mt-5 xl:mt-0 xl:col-span-2">
+        <div class="mt-5 lg:mt-0 lg:col-span-2">
             <form @submit.prevent="$emit('submitted')">
                 <div
                     class="px-4 py-5 bg-white dark:bg-slate-800 sm:p-6 shadow-lg"
