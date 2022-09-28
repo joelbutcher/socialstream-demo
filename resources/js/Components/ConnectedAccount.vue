@@ -91,7 +91,7 @@ const createdAt = computed(() => hasAccountForProvider(props.provider) ? getAcco
           <DangerButton
               @click="$emit('confirmRemoveConnectedAccount')"
               v-if="hasAccountForProvider(provider) && $page.props.socialstream.hasPassword"
-              class="text-xs text-slate-500"
+              class="text-xs"
           >
             Remove
           </DangerButton>
