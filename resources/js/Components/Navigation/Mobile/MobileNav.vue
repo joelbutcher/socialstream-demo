@@ -21,6 +21,14 @@ defineProps({
   mobileMenuOpen: Boolean,
 });
 
+const switchToTeam = (team) => {
+  Inertia.put(route('current-team.update'), {
+    team_id: team.id,
+  }, {
+    preserveState: false,
+  });
+};
+
 const logout = () => {
   Inertia.post(route('logout'));
 };
@@ -51,8 +59,8 @@ const logout = () => {
       </div>
 
       <!-- Main Menu -->
-      <div class="flex flex-col grow py-2 border-t border-indigo-500 overflow-scroll shadow-inner">
-        <div class="px-4 py-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
+      <div class="flex flex-col py-2 border-t border-indigo-500 overflow-scroll shadow-inner">
+        <div class="px-4 py-1 text-xs text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
           Main Menu
         </div>
 
@@ -65,25 +73,11 @@ const logout = () => {
             <HomeIcon class="w-4 h-4"/>
             <span class="text-xs sm:text-sm">Home</span>
           </MobileNavLink>
-
-          <MobileNavLink
-              :href="route('users.index')"
-              :active="route().current('users.index')"
-          >
-            <UserGroupIcon class="w-4 h-4"/>
-            <span class="text-xs sm:text-sm">
-              Users
-            </span>
-          </MobileNavLink>
         </ul>
       </div>
 
       <!-- Account Management -->
-      <div class="border-t border-indigo-500 py-2">
-        <div class="px-4 py-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
-          Account Management
-        </div>
-
+      <div class="grow border-t border-indigo-500 py-2">
         <MobileNavLink
             :href="route('profile.show')"
             :active="route().current('profile.show')"
@@ -105,6 +99,66 @@ const logout = () => {
           </span>
         </MobileNavLink>
       </div>
+
+      <!-- Team Management -->
+      <template v-if="$page.props.jetstream.hasTeamFeatures">
+        <div class="border-t border-indigo-500 py-2">
+          <div class="px-4 py-1 text-xs text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
+            Manage Team
+          </div>
+
+          <MobileNavLink
+              :href="route('teams.show', $page.props.user.current_team)"
+              :active="route().current('teams.show')"
+          >
+            <span class="text-xs sm:text-sm">
+              Team Settings
+            </span>
+          </MobileNavLink>
+
+          <MobileNavLink
+              :href="route('teams.create')"
+              v-if="$page.props.jetstream.canCreateTeams"
+              :active="route().current('teams.create')"
+          >
+            <span class="text-xs sm:text-sm">
+              Create new Settings
+            </span>
+          </MobileNavLink>
+        </div>
+
+        <div class="border-t border-indigo-500 py-2">
+          <div class="px-4 py-1 text-xs text-slate-700 dark:text-slate-300 font-semibold tracking-wider">
+            Switch Teams
+          </div>
+
+          <template v-for="team in $page.props.user.all_teams" :key="team.id">
+            <form @submit.prevent="switchToTeam(team)">
+              <MobileNavLink
+                  as="button"
+              >
+                <div class="flex items-center">
+                  <svg
+                      v-if="team.id === $page.props.user.current_team_id"
+                      class="mr-2 h-5 w-5 text-green-400"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                  >
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <div>
+                    {{ team.name }}
+                  </div>
+                </div>
+              </MobileNavLink>
+            </form>
+          </template>
+        </div>
+      </template>
 
       <div class="border-t border-indigo-500 mb-2">
         <button @click="logout"

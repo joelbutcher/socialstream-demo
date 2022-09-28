@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Enums\UserRoleEnum;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +12,6 @@ class DatabaseSeeder extends Seeder
         tap(User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'role' => UserRoleEnum::Admin,
         ]), function (User $user) {
             $user->ownedTeams()->create([
                 'user_id' => 1,

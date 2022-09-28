@@ -71,7 +71,7 @@ const logout = () => {
 
               <div class="flex items-center justify-between space-x-3">
                 <!-- Team Management  -->
-                <TeamsDropdown v-show="$page.props.user.role === 1"/>
+                <TeamsDropdown v-show="$page.props.jetstream.hasTeamFeatures"/>
 
                 <!-- Profile  -->
                 <ProfileButton/>

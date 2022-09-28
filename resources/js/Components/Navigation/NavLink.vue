@@ -19,7 +19,7 @@ const props = defineProps({
 <template>
   <li
       :class="clsx(
-          'relative cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-900 border-l-4 border-transparent group list-none',
+          'relative cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-900 border-l-4 border-transparent group list-none',
           'transition duration-300 ease',
           active && 'bg-slate-100 dark:bg-slate-900 border-indigo-500',
       )"

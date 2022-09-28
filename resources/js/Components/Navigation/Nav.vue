@@ -5,8 +5,6 @@ import {ref} from 'vue';
 import {Link} from '@inertiajs/inertia-vue3';
 import {
   HomeIcon,
-  UsersIcon,
-  UserGroupIcon,
   ChevronRightIcon,
 } from '@heroicons/vue/24/solid';
 
@@ -80,7 +78,7 @@ const toggleMenu = () => {
 
       <!-- Main Menu -->
       <ul class="grow mt-6 py-2">
-        <!-- Home -->
+        <!-- Dashboard -->
         <NavLink
             label="Dashboard"
             :open="open"
@@ -89,17 +87,6 @@ const toggleMenu = () => {
         >
           <template #icon>
             <HomeIcon class="w-5 h-5"/>
-          </template>
-        </NavLink>
-
-        <NavLink
-            label="Users"
-            :open="open"
-            :href="route('users.index')"
-            :active="route().current('users.index')"
-        >
-          <template #icon>
-            <UsersIcon class="w-5 h-5"/>
           </template>
         </NavLink>
       </ul>
