@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Notifications\Slack\SlackDbRefreshedNotification;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -15,8 +16,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('app:backup-db')
             ->hourlyAt(0);
 
-        $schedule->command('migrate:fresh', ['--step', '--seed'])
-            ->hourlyAt(1);
+        $schedule->command('migrate:fresh', ['--step', '--seed', '--force'])
+            ->hourlyAt(1)
+            ->after(fn () => SlackDbRefreshedNotification::send();
 
         $schedule->command('app:restore-db')
             ->hourlyAt(2)
