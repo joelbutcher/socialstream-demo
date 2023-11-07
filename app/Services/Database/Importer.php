@@ -8,6 +8,9 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
+/**
+ * @template TModelClass of Model
+ */
 abstract class Importer implements ToModel, WithHeadingRow
 {
     use Importable;
@@ -22,6 +25,11 @@ abstract class Importer implements ToModel, WithHeadingRow
 
         return (new $modelClass)->forceFill(Arr::except($row, ['current_connected_account_id']));
     }
+
+    /**
+     * @return class-string<TModelClass>
+     */
+    abstract protected function modelClass(): string;
 
     protected function shouldImport(array $row): bool
     {

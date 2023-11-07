@@ -29,6 +29,6 @@ return [
         Features::providerAvatars(),
         Features::rememberSession(),
         Features::providerAvatars(),
-        Features::refreshOauthTokens(),
+        Features::refreshOAuthTokens(),
     ],
 ];
