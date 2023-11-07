@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('migrate:fresh', ['--step', '--seed', '--force'])
             ->hourlyAt(1)
-            ->after(fn () => SlackDbRefreshedNotification::send();
+            ->after(fn () => SlackDbRefreshedNotification::send());
 
         $schedule->command('app:restore-db')
             ->hourlyAt(2)
