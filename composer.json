@@ -19,6 +19,7 @@
         "livewire/livewire": "^3.0",
         "maatwebsite/excel": "*",
         "socialiteproviders/apple": "^5.6",
+        "spatie/laravel-webhook-client": "^3.2",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
