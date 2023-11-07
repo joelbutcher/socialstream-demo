@@ -3,6 +3,7 @@
 namespace App\Services\Database;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
@@ -19,7 +20,7 @@ abstract class Importer implements ToModel, WithHeadingRow
 
         $modelClass = $this->modelClass();
 
-        return (new $modelClass)->forceFill($row);
+        return (new $modelClass)->forceFill(Arr::except($row, ['current_connected_account_id']));
     }
 
     protected function shouldImport(array $row): bool
