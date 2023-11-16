@@ -9,6 +9,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -39,6 +40,9 @@ class RestoreDatabase implements ShouldQueue
                 filePath: "database/exports/$table.xlsx"
             );
         });
+
+        // Cleanup
+        Storage::deleteDirectory('database/exports');
     }
 
     private function tables(): Collection

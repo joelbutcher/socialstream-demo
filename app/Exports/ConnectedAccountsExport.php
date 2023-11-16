@@ -12,7 +12,6 @@ class ConnectedAccountsExport extends Exporter
     {
         return $this->users(relations: ['connectedAccounts'])
             ->map(fn (User $user) => $user->connectedAccounts)
-            ->flatten()
-            ->unique('id');
+            ->flatten();
     }
 }

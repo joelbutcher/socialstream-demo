@@ -12,6 +12,6 @@ class TeamsExport extends Exporter
     {
         return $this->users()->map(
             fn (User $user) => $user->allTeams(),
-        )->flatten()->unique('id');
+        )->flatten();
     }
 }
