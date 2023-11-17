@@ -20,15 +20,15 @@ defineProps({
 </script>
 
 <template>
-   <div>
-      <AppleIcon v-if="provider.id === 'apple'" :class="classes"/>
-      <BitbucketIcon v-else-if="provider.id === 'bitbucket'" :class="classes"/>
-      <FacebookIcon v-else-if="provider.id === 'facebook'" :class="classes"/>
-      <GithubIcon v-else-if="provider.id === 'github'" :class="classes"/>
-      <GitLabIcon v-else-if="provider.id === 'gitlab'" :class="classes"/>
-      <GoogleIcon v-else-if="provider.id === 'google'" :class="classes"/>
-      <LinkedInIcon v-else-if="provider.id === 'linkedin' || provider.id === 'linkedin-openid'" :class="classes"/>
-      <SlackIcon v-else-if="provider.id === 'slack'" :class="classes"/>
-      <TwitterIcon v-else-if="provider.id === 'twitter' || provider.id === 'twitter-oauth-2'" :class="classes"/>
-   </div>
+    <div class="text-gray-900 dark:text-gray-100">
+       <AppleIcon v-if="provider.id === 'apple'" :class="classes"/>
+       <BitbucketIcon v-if="provider.id === 'bitbucket'" :class="classes"/>
+       <FacebookIcon v-if="provider.id === 'facebook'" :class="classes"/>
+       <GithubIcon v-if="provider.id === 'github'" :class="classes"/>
+       <GitLabIcon v-if="provider.id === 'gitlab'" :class="classes"/>
+       <GoogleIcon v-if="provider.id === 'google'" :class="classes"/>
+       <LinkedInIcon v-if="provider.id === 'linkedin' || provider.id === 'linkedin-openid'" :class="classes"/>
+       <SlackIcon v-if="provider.id === 'slack'" :class="classes"/>
+       <TwitterIcon v-if="provider.id === 'twitter' || provider.id === 'twitter-oauth-2'" :class="classes"/>
+    </div>
 </template>

@@ -65,9 +65,7 @@ const closeModal = () => {
         </template>
 
         <template #description>
-           <p>
-              Connect your social media accounts to enable Sign In with OAuth.
-           </p>
+           Connect your social media accounts to enable Sign In with OAuth.
         </template>
 
         <template #content>

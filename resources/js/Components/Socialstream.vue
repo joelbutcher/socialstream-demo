@@ -41,9 +41,7 @@ defineProps({
                }"
                :href="route('oauth.redirect', provider.id)">
                 <ProviderIcon :provider="provider" classes="h-6 w-6 mx-2"/>
-                <span
-                   class="block font-medium text-sm"
-                >{{ provider.buttonLabel || provider.name }}</span>
+                <span class="block font-medium text-sm text-gray-700 dark:text-gray-300">{{ provider.buttonLabel || provider.name }}</span>
             </a>
         </div>
     </div>
