@@ -21,7 +21,7 @@ defineProps({
 
 <template>
     <div class="text-gray-900 dark:text-gray-100">
-       <AppleIcon v-if="provider.id === 'apple'" :class="classes"/>
+       <AppleIcon v-if="provider.id === 'apple'" :class="classes" class="text-white"/>
        <BitbucketIcon v-if="provider.id === 'bitbucket'" :class="classes"/>
        <FacebookIcon v-if="provider.id === 'facebook'" :class="classes"/>
        <GithubIcon v-if="provider.id === 'github'" :class="classes"/>
