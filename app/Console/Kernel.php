@@ -13,8 +13,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:rebuild')
-            ->hourlyAt(0);
+        $schedule->command('app:refresh')->hourlyAt(0);
     }
 
     /**
