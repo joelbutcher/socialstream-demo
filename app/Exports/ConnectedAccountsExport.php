@@ -14,4 +14,9 @@ class ConnectedAccountsExport extends Exporter
             ->map(fn (User $user) => $user->connectedAccounts)
             ->flatten();
     }
+
+    public function map($row): array
+    {
+        return parent::map($row->toArray());
+    }
 }

@@ -39,7 +39,7 @@ abstract class Exporter implements FromCollection, WithHeadings, WithMapping
 
         array_unshift($attributeKeys, 'id');
 
-        return array_unique($attributeKeys);
+        return array_values(array_unique($attributeKeys));
     }
 
     /** @var array<string, mixed> $row */

@@ -13,16 +13,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:backup-db')
+        $schedule->command('app:rebuild')
             ->hourlyAt(0);
-
-        $schedule->command('migrate:fresh', ['--step', '--seed', '--force'])
-            ->hourlyAt(1)
-            ->after(fn () => SlackDbRefreshedNotification::send());
-
-        $schedule->command('app:restore-db')
-            ->hourlyAt(2)
-            ->thenPing(config('services.envoyer.heartbeats.refresh-database'));
     }
 
     /**
