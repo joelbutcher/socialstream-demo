@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbc4120d90bc2038bf07a9ffa2441bbe",
+    "content-hash": "50422812872bcdce0e8bfbb29f9bd7c1",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2203,16 +2203,16 @@
         },
         {
             "name": "joelbutcher/socialstream",
-            "version": "v6.1.5",
+            "version": "6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joelbutcher/socialstream.git",
-                "reference": "d115bc82a4e15631faffcf512cbaf85e67ca8998"
+                "reference": "cee500cb804b4c51449b707194fa9726a617e1e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joelbutcher/socialstream/zipball/d115bc82a4e15631faffcf512cbaf85e67ca8998",
-                "reference": "d115bc82a4e15631faffcf512cbaf85e67ca8998",
+                "url": "https://api.github.com/repos/joelbutcher/socialstream/zipball/cee500cb804b4c51449b707194fa9726a617e1e5",
+                "reference": "cee500cb804b4c51449b707194fa9726a617e1e5",
                 "shasum": ""
             },
             "require": {
@@ -2233,6 +2233,7 @@
                 "pestphp/pest-plugin-laravel": "^2.2",
                 "phpunit/phpunit": "^10.5"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2280,7 +2281,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-06T10:40:57+00:00"
+            "time": "2024-09-11T10:31:04+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",
@@ -11563,7 +11564,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "joelbutcher/socialstream": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
