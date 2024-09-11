@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50422812872bcdce0e8bfbb29f9bd7c1",
+    "content-hash": "a80316e4992bb64d04f2ea131a620702",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -2203,7 +2203,7 @@
         },
         {
             "name": "joelbutcher/socialstream",
-            "version": "6.x-dev",
+            "version": "v6.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joelbutcher/socialstream.git",
@@ -2233,7 +2233,6 @@
                 "pestphp/pest-plugin-laravel": "^2.2",
                 "phpunit/phpunit": "^10.5"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -11564,9 +11563,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "joelbutcher/socialstream": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
